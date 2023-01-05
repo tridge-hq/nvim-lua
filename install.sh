@@ -40,10 +40,10 @@ mkdir -p ~/.config
 mkdir -p ~/.config/nvim
 
 # Link files
-ln -s ~/nvim-lua/init.lua ~/.config/nvim/init.lua
-ln -s ~/nvim-lua/lua ~/.config/nvim/
-ln -s ~/nvim-lua/zshrc .zshrc
-ln -s ~/nvim-lua/tmux.conf .tmux.conf
+ln -sf ~/nvim-lua/init.lua ~/.config/nvim/init.lua
+ln -sf ~/nvim-lua/lua ~/.config/nvim/
+ln -sf ~/nvim-lua/zshrc .zshrc
+ln -sf ~/nvim-lua/tmux.conf .tmux.conf
 
 # Install tpm
 if [ -d ".tmux/plugins/tpm " ]; then
