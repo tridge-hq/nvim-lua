@@ -3,6 +3,7 @@
 
 ## How to Install
 ```
+$ cd ~
 $ git clone https://github.com/tridge-hq/nvim-lua.git
 $ cd nvim-lua
 $ ./install.sh
