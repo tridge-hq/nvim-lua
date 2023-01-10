@@ -16,17 +16,19 @@ brew install --cask font-hack-nerd-font
 sudo easy_install pip
 
 # Install Oh My Zsh
-if [ -d ".oh-my-zsh" ]; then
+if [ -d "~/.oh-my-zsh" ]; then
     cd .oh-my-zsh && git pull origin master && cd ~
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting
+    git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
 else
     sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 fi
 
 # Clone nvim repo
-if [ -d "nvim-lua" ]; then
+if [ -d "~/nvim-lua" ]; then
     cd nvim-lua && git pull origin main && cd ~
 else
-    git clone https://github.com/scubedoo187/nvim-lua.git
+    git clone https://github.com/tridge-hq/nvim-lua.git
 fi
 
 # nvim related
@@ -42,8 +44,14 @@ mkdir -p ~/.config/nvim
 # Link files
 ln -sf ~/nvim-lua/init.lua ~/.config/nvim/init.lua
 ln -sf ~/nvim-lua/lua ~/.config/nvim/
-ln -sf ~/nvim-lua/zshrc .zshrc
-ln -sf ~/nvim-lua/tmux.conf .tmux.conf
+if [ -f "~/.zshrc" ]; then
+    mv ~/.zshrc ~/.zshrc_old
+fi
+ln -sf ~/nvim-lua/zshrc ~/.zshrc
+if [ -f "~/.tmux.conf" ]; then
+    mv ~/.tmux.conf ~/.tmux.conf_old
+fi
+ln -sf ~/nvim-lua/tmux.conf ~/.tmux.conf
 
 # Install tpm
 if [ -d ".tmux/plugins/tpm " ]; then
