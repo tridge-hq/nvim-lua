@@ -53,4 +53,3 @@ vim.o.mouse = a
 vim.o.updatetime = 100
 vim.o.timeoutlen = 400
 vim.o.termguicolors = true
-vim.cmd[[colorscheme tokyonight-moon]]

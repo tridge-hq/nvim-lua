@@ -1,3 +1,5 @@
+vim.cmd[[colorscheme tokyonight-moon]]
+
 ---------------
 -- nvim-tree --
 require('nvim-tree').setup({
@@ -185,8 +187,19 @@ require('gitsigns').setup{}
 ------------------
 -- nvim-comment --
 require('nvim_comment').setup({
-    comment_empty = false,
-    comment_empty_trim_whitespace = false,
-    line_mapping = '<Leader>cl',
-    operator_mapping = '<Leader>cc',
+  comment_empty = false,
+  comment_empty_trim_whitespace = false,
+  line_mapping = '<Leader>cl',
+  operator_mapping = '<Leader>cc',
+})
+
+-----------
+-- noice --
+require('noice').setup({
+  requires = {
+    "MunifTanjim/nui.nvim",
+  },
+  messages = {
+    enabled = false,
+  }
 })

@@ -7,6 +7,9 @@ return {
     'akinsho/bufferline.nvim',
     'lukas-reineke/indent-blankline.nvim',
     'folke/tokyonight.nvim',
+    'folke/noice.nvim',
+    'MunifTanjim/nui.nvim',
+    'rcarriga/nvim-notify',
 
     --Basics
     'folke/which-key.nvim',
@@ -21,7 +24,6 @@ return {
     'tpope/vim-dadbod',
     'kristijanhusak/vim-dadbod-ui',
     'rstacruz/sparkup',
-    'easymotion/vim-easymotion',
     'justinmk/vim-sneak',
     'godlygeek/tabular',
     'majutsushi/tagbar',
