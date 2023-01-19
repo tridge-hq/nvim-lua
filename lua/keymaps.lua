@@ -1,5 +1,4 @@
 -- vim basics
-vim.keymap.set({ 'n', 'x' }, '<Leader>zz', ':%s/\\s\\+$//e<CR>')
 vim.keymap.set({ 'i', 'x' }, '<C-c>', '<C-[>')
 vim.keymap.set({ 'i', 'x' }, '<Left>', '<nop>')
 vim.keymap.set({ 'i', 'x' }, '<Down>', '<nop>')
@@ -24,6 +23,7 @@ vim.keymap.set({ 'n', 'x' }, 'tl', ':tabnext<CR>')
 vim.keymap.set({ 'n', 'x' }, 'H', '^')
 vim.keymap.set({ 'n', 'x' }, 'L', 'g_')
 vim.keymap.set({ 'n', 'x', 'v' }, '<Leader>y', '"*y')
+vim.keymap.set('n', '<Leader>zz', ':%s/\\s\\+$//e<CR>')
 
 
 --------------------------
@@ -70,13 +70,6 @@ vim.keymap.set('n', '<silent> <Leader>gw', ':Gwrite<CR>')
 vim.keymap.set('n', '<silent> <Leader>gr', ':Gread<CR>')
 
 
-----------------
--- easymotion --
-vim.keymap.set('n', '<Leader>s', '<Plug>(easymotion-overwin-f2)')
-vim.keymap.set('n', '<Leader>w', '<Plug>(easymotion-bd-w)')
-vim.keymap.set('n', '<Leader>w', '<Plug>(easymotion-overwin-w)')
-
-
 --------------
 -- Undotree --
 vim.keymap.set('n', '<Leader>u', ':UndotreeToggle<CR>:UndotreeFocus<CR>')
@@ -119,4 +112,5 @@ vim.keymap.set('n', '<Leader>gd', ':Gitsigns diffthis<CR>')
 
 ------------
 -- dadbod --
+
 vim.keymap.set('n', '<Leader>db', ':DBUIToggle<CR>')
