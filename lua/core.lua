@@ -49,7 +49,20 @@ vim.o.wildignore = vim.o.wildignore .. '*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz'
 vim.o.wildmenu = true
 vim.o.wildmode = 'list:longest'
 vim.o.wrap = true
-vim.o.mouse = a
+vim.o.mouse = 'a'
 vim.o.updatetime = 100
 vim.o.timeoutlen = 400
 vim.o.termguicolors = true
+
+function SETLOCALPERFILETYPE()
+  local filetype = vim.bo.filetype
+  if filetype == 'python' then
+    vim.cmd [[set ts=4 sw=4 sts=4 expandtab]]
+  else
+    vim.cmd [[set ts=2 sw=2 sts=2 expandtab]]
+  end
+end
+
+vim.api.nvim_create_autocmd('BufEnter', {
+  command = 'silent! lua SETLOCALPERFILETYPE()',
+})
