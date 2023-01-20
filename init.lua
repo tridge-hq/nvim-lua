@@ -14,4 +14,5 @@ vim.opt.runtimepath:prepend(lazypath)
 
 require('lazy').setup('plugins', { concurrency = 50 })
 require('configs')
+require('lsp')
 require('keymaps')

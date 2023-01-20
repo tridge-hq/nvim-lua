@@ -3,7 +3,7 @@ vim.keymap.set({ 'i', 'x' }, '<C-c>', '<C-[>')
 vim.keymap.set({ 'i', 'x' }, '<Left>', '<nop>')
 vim.keymap.set({ 'i', 'x' }, '<Down>', '<nop>')
 vim.keymap.set({ 'i', 'x' }, '<Up>', '<nop>')
-vim.keymap.set({'i', 'x' }, '<Right>', '<nop>')
+vim.keymap.set({ 'i', 'x' }, '<Right>', '<nop>')
 
 vim.keymap.set({ 'n', 'x' }, '<C-J>', '<C-W>j')
 vim.keymap.set({ 'n', 'x' }, '<C-K>', '<C-W>k')
@@ -44,15 +44,15 @@ vim.keymap.set('n', '<Leader>nt', ':NvimTreeFindFileToggle<CR>')
 
 ---------
 -- fzf --
-vim.keymap.set('n', '<Leader>f',   ':Files<CR>')
-vim.keymap.set('n', '<Leader>b',   ':Buffer<CR>')
-vim.keymap.set('n', '<Leader>bl',  ':BLines<CR>')
-vim.keymap.set('n', '<Leader>l',   ':Lines<CR>')
-vim.keymap.set('n', '<Leader>gf',  ':GFiles<CR>')
-vim.keymap.set('n', '<Leader>gs',  ':GFiles?<CR>')
+vim.keymap.set('n', '<Leader>f', ':Files<CR>')
+vim.keymap.set('n', '<Leader>b', ':Buffer<CR>')
+vim.keymap.set('n', '<Leader>bl', ':BLines<CR>')
+vim.keymap.set('n', '<Leader>l', ':Lines<CR>')
+vim.keymap.set('n', '<Leader>gf', ':GFiles<CR>')
+vim.keymap.set('n', '<Leader>gs', ':GFiles?<CR>')
 vim.keymap.set('n', '<Leader>gco', ':Commits<CR>')
 vim.keymap.set('n', '<Leader>gbc', ':BCommits<CR>')
-vim.keymap.set('n', '<Leader>aa',  ':Ag ')
+vim.keymap.set('n', '<Leader>aa', ':Ag ')
 
 --------------
 -- Fugitive --
