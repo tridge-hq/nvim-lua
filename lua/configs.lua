@@ -96,14 +96,14 @@ require('nvim_comment').setup({
 -----------
 -- Mason --
 require('mason').setup()
-require("mason-lspconfig").setup {
+require('mason-lspconfig').setup {
   ensure_installed = {
-    "sumneko_lua",
-    "eslint",
-    "pyright",
-    "tsserver",
-    "quick_lint_js",
-    "gopls",
+    'sumneko_lua',
+    'eslint',
+    'pyright',
+    'tsserver',
+    'quick_lint_js',
+    'gopls',
   },
   automatic_installation = true,
 }
