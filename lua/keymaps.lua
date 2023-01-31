@@ -1,10 +1,9 @@
 -- vim basics
-vim.keymap.set({ 'n', 'x' }, '<Leader>zz', ':%s/\\s\\+$//e<CR>')
 vim.keymap.set({ 'i', 'x' }, '<C-c>', '<C-[>')
 vim.keymap.set({ 'i', 'x' }, '<Left>', '<nop>')
 vim.keymap.set({ 'i', 'x' }, '<Down>', '<nop>')
 vim.keymap.set({ 'i', 'x' }, '<Up>', '<nop>')
-vim.keymap.set({'i', 'x' }, '<Right>', '<nop>')
+vim.keymap.set({ 'i', 'x' }, '<Right>', '<nop>')
 
 vim.keymap.set({ 'n', 'x' }, '<C-J>', '<C-W>j')
 vim.keymap.set({ 'n', 'x' }, '<C-K>', '<C-W>k')
@@ -24,16 +23,17 @@ vim.keymap.set({ 'n', 'x' }, 'tl', ':tabnext<CR>')
 vim.keymap.set({ 'n', 'x' }, 'H', '^')
 vim.keymap.set({ 'n', 'x' }, 'L', 'g_')
 vim.keymap.set({ 'n', 'x', 'v' }, '<Leader>y', '"*y')
+vim.keymap.set('n', '<Leader>zz', ':%s/\\s\\+$//e<CR>')
 
 
 --------------------------
 -- nvim-tmux-navigation --
 local nvim_tmux_nav = require('nvim-tmux-navigation')
 nvim_tmux_nav.setup { disable_when_zoomed = true }
-vim.keymap.set('n', "<C-h>", nvim_tmux_nav.NvimTmuxNavigateLeft)
-vim.keymap.set('n', "<C-j>", nvim_tmux_nav.NvimTmuxNavigateDown)
-vim.keymap.set('n', "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp)
-vim.keymap.set('n', "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight)
+vim.keymap.set('n', '<C-h>', nvim_tmux_nav.NvimTmuxNavigateLeft)
+vim.keymap.set('n', '<C-j>', nvim_tmux_nav.NvimTmuxNavigateDown)
+vim.keymap.set('n', '<C-k>', nvim_tmux_nav.NvimTmuxNavigateUp)
+vim.keymap.set('n', '<C-l>', nvim_tmux_nav.NvimTmuxNavigateRight)
 
 
 ---------------
@@ -44,15 +44,15 @@ vim.keymap.set('n', '<Leader>nt', ':NvimTreeFindFileToggle<CR>')
 
 ---------
 -- fzf --
-vim.keymap.set('n', '<Leader>f',   ':Files<CR>')
-vim.keymap.set('n', '<Leader>b',   ':Buffer<CR>')
-vim.keymap.set('n', '<Leader>bl',  ':BLines<CR>')
-vim.keymap.set('n', '<Leader>l',   ':Lines<CR>')
-vim.keymap.set('n', '<Leader>gf',  ':GFiles<CR>')
-vim.keymap.set('n', '<Leader>gs',  ':GFiles?<CR>')
+vim.keymap.set('n', '<Leader>f', ':Files<CR>')
+vim.keymap.set('n', '<Leader>b', ':Buffer<CR>')
+vim.keymap.set('n', '<Leader>bl', ':BLines<CR>')
+vim.keymap.set('n', '<Leader>l', ':Lines<CR>')
+vim.keymap.set('n', '<Leader>gf', ':GFiles<CR>')
+vim.keymap.set('n', '<Leader>gs', ':GFiles?<CR>')
 vim.keymap.set('n', '<Leader>gco', ':Commits<CR>')
 vim.keymap.set('n', '<Leader>gbc', ':BCommits<CR>')
-vim.keymap.set('n', '<Leader>aa',  ':Ag ')
+vim.keymap.set('n', '<Leader>aa', ':Ag ')
 
 --------------
 -- Fugitive --
@@ -68,13 +68,6 @@ vim.keymap.set('n', '<Leader>ggl', ':G pull origin ')
 vim.keymap.set('n', '<Leader>gpp', ':G push origin ')
 vim.keymap.set('n', '<silent> <Leader>gw', ':Gwrite<CR>')
 vim.keymap.set('n', '<silent> <Leader>gr', ':Gread<CR>')
-
-
-----------------
--- easymotion --
-vim.keymap.set('n', '<Leader>s', '<Plug>(easymotion-overwin-f2)')
-vim.keymap.set('n', '<Leader>w', '<Plug>(easymotion-bd-w)')
-vim.keymap.set('n', '<Leader>w', '<Plug>(easymotion-overwin-w)')
 
 
 --------------
@@ -119,4 +112,5 @@ vim.keymap.set('n', '<Leader>gd', ':Gitsigns diffthis<CR>')
 
 ------------
 -- dadbod --
+
 vim.keymap.set('n', '<Leader>db', ':DBUIToggle<CR>')
