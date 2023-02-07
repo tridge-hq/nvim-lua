@@ -7,10 +7,9 @@ return {
   'akinsho/bufferline.nvim',
   'lukas-reineke/indent-blankline.nvim',
   'folke/tokyonight.nvim',
-  'MunifTanjim/nui.nvim',
-  'rcarriga/nvim-notify',
 
   --Basics
+  'nvim-lua/plenary.nvim',
   'folke/which-key.nvim',
   'junegunn/fzf',
   'junegunn/fzf.vim',
@@ -43,7 +42,6 @@ return {
 
   --Language/Syntax
   'williamboman/mason.nvim',
-  'williamboman/mason-lspconfig.nvim',
   'neovim/nvim-lspconfig',
   'hrsh7th/nvim-cmp',
   'hrsh7th/cmp-nvim-lsp',
@@ -62,8 +60,8 @@ return {
   'fatih/vim-go',
   'styled-components/vim-styled-components',
   'jparise/vim-graphql',
-  'w0rp/ale',
   'Vimjas/vim-python-pep8-indent',
+  'jose-elias-alvarez/null-ls.nvim',
 
   --Git
   'airblade/vim-gitgutter',

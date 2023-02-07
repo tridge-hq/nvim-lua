@@ -92,9 +92,6 @@ vim.keymap.set('v', '<Leader>t<Bar>', ':Tabularize /<Bar><CR>')
 -- tagbar --
 vim.keymap.set('n', '<Leader>ta', ':TagbarToggle<CR>')
 
----------
--- Ale --
-vim.keymap.set('n', '<Leader>ale', ':ALEFix<CR>')
 
 --------------
 -- Startify --

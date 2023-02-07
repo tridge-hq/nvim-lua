@@ -84,7 +84,6 @@ $ ./install.sh
 * fatih/vim-go
 * styled-components/vim-styled-components
 * jparise/vim-graphql
-* w0rp/ale
 * Vimjas/vim-python-pep8-indent
 
 ### Git
