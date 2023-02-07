@@ -65,7 +65,15 @@ require('lspconfig')['sumneko_lua'].setup {
   }
 }
 
-for _, value in ipairs({ 'eslint', 'quick_lint_js', 'tsserver', 'gopls' }) do
+-- Ref: https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
+for _, value in ipairs({
+  'eslint',
+  'gopls',
+  'pyright',
+  'quick_lint_js',
+  'sumneko_lua',
+  'tsserver',
+}) do
   require('lspconfig')[value].setup {
     on_attach = on_attach,
     flags = lsp_flags,

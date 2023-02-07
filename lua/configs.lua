@@ -50,10 +50,21 @@ vim.g.vim_jsx_pretty_colorful_config = 1
 vim.g.vim_jsx_pretty_highlight_close_tag = 1
 
 
----------
--- Ale --
-vim.b.ale_linters = { javascript = { 'eslint' }, python = { 'flake8' } }
-vim.g.ale_fixers = { python = { 'isort' } }
+-------------
+-- null-ls --
+local null_ls = require('null-ls')
+null_ls.setup({
+  sources = {
+    -- lua
+    null_ls.builtins.formatting.stylua,
+    -- js
+    null_ls.builtins.formatting.eslint_d,
+    -- python
+    null_ls.builtins.formatting.isort,
+    null_ls.builtins.formatting.black,
+  },
+})
+-- Ref: https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
 
 
 --------------
@@ -96,14 +107,3 @@ require('nvim_comment').setup({
 -----------
 -- Mason --
 require('mason').setup()
-require('mason-lspconfig').setup {
-  ensure_installed = {
-    'sumneko_lua',
-    'eslint',
-    'pyright',
-    'tsserver',
-    'quick_lint_js',
-    'gopls',
-  },
-  automatic_installation = true,
-}
