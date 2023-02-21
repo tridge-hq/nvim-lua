@@ -51,7 +51,7 @@ require('lspconfig')['pyright'].setup {
   },
 }
 
-require('lspconfig')['sumneko_lua'].setup {
+require('lspconfig')['lua_ls'].setup {
   on_attach = on_attach,
   flags = lsp_flags,
   settings = {
@@ -71,7 +71,6 @@ for _, value in ipairs({
   'gopls',
   'pyright',
   'quick_lint_js',
-  'sumneko_lua',
   'tsserver',
 }) do
   require('lspconfig')[value].setup {
