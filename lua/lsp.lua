@@ -1,7 +1,6 @@
 -- lsp
 require('mason-lspconfig').setup {
   ensure_installed = {
-    'eslint',
     'gopls',
     'lua_ls',
     'pyright',
@@ -73,7 +72,6 @@ require('lspconfig')['lua_ls'].setup {
 
 -- Ref: https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
 for _, value in ipairs({
-  'eslint',
   'gopls',
   'tsserver',
 }) do
