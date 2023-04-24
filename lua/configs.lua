@@ -14,15 +14,7 @@ require('nvim-tree').setup({
 ---------------
 -- which-key --
 local wk = require('which-key')
-wk.setup {
-  -- your configuration comes here
-  -- or leave it empty to use the default settings
-  -- refer to the configuration section below
-}
-wk.register({
-  u = { 'Undotree' },
-}, { prefix = '<Leader>' })
-
+wk.setup {}
 
 --------------
 -- Undotree --
@@ -44,10 +36,10 @@ vim.g.tagbar_left = 1
 
 --------------------
 -- vim-jsx-pretty --
-vim.g.jsx_ext_required = 0
-vim.g.vim_jsx_pretty_template_tags = { 'html', 'jsx', 'js' }
-vim.g.vim_jsx_pretty_colorful_config = 1
-vim.g.vim_jsx_pretty_highlight_close_tag = 1
+-- vim.g.jsx_ext_required = 0
+-- vim.g.vim_jsx_pretty_template_tags = { 'html', 'jsx', 'js' }
+-- vim.g.vim_jsx_pretty_colorful_config = 1
+-- vim.g.vim_jsx_pretty_highlight_close_tag = 1
 
 
 -------------
@@ -57,12 +49,18 @@ null_ls.setup({
   sources = {
     -- lua
     null_ls.builtins.formatting.stylua,
+
     -- js
     null_ls.builtins.formatting.eslint_d,
+    null_ls.builtins.diagnostics.eslint_d,
+
     -- python
     null_ls.builtins.formatting.isort,
     null_ls.builtins.formatting.black,
+    null_ls.builtins.diagnostics.ruff,
   },
+  diagnostics_format = "[#{c}] #{m} (#{s})",
+  debounce = 250,
 })
 -- Ref: https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
 
@@ -85,7 +83,6 @@ require('scope').setup()
 
 ----------------
 -- bufferline --
-vim.opt.termguicolors = true
 require('bufferline').setup {}
 
 
@@ -107,3 +104,33 @@ require('nvim_comment').setup({
 -----------
 -- Mason --
 require('mason').setup()
+
+require('mason-null-ls').setup({
+  ensure_installed = {
+    --python
+    'black',
+    'isort',
+    'ruff',
+
+    --javascript
+    'eslint_d',
+
+    --lua
+    "stylua",
+  },
+  automatic_installation = true,
+})
+
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = {
+    'go',
+    'javascript',
+    'lua',
+    'python',
+    'toml',
+    'yaml',
+  },
+  highlight = {
+    enable = false,
+  }
+}

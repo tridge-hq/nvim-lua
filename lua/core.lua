@@ -1,7 +1,7 @@
 -- vim core
 
 vim.g.mapleader = ','
-vim.o.syntax = 'enable'
+-- vim.o.syntax = 'enable'
 vim.o.nocompatible = true
 vim.o.autoindent = true
 vim.o.backspace = 'indent,eol,start'
