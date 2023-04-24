@@ -42,7 +42,6 @@ vim.o.title = true
 vim.o.undofile = true
 vim.o.undolevels = 1000
 vim.o.visualbell = true
-vim.o.clipboard="unnamedplus"
 vim.o.wildignore = vim.o.wildignore .. '*.o,*.out,*.obj,*.so,*.pyc'
 vim.o.wildignore = vim.o.wildignore .. '*.so,*.swp,*.zip,*.pyc'
 vim.o.wildignore = vim.o.wildignore .. '*.swp,*~,._*'
