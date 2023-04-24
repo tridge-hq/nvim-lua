@@ -1,7 +1,7 @@
 -- vim core
 
 vim.g.mapleader = ','
-vim.o.syntax = 'enable'
+-- vim.o.syntax = 'enable'
 vim.o.nocompatible = true
 vim.o.autoindent = true
 vim.o.backspace = 'indent,eol,start'
@@ -42,6 +42,7 @@ vim.o.title = true
 vim.o.undofile = true
 vim.o.undolevels = 1000
 vim.o.visualbell = true
+vim.o.clipboard="unnamedplus"
 vim.o.wildignore = vim.o.wildignore .. '*.o,*.out,*.obj,*.so,*.pyc'
 vim.o.wildignore = vim.o.wildignore .. '*.so,*.swp,*.zip,*.pyc'
 vim.o.wildignore = vim.o.wildignore .. '*.swp,*~,._*'
