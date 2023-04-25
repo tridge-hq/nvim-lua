@@ -83,7 +83,11 @@ require('scope').setup()
 
 ----------------
 -- bufferline --
-require('bufferline').setup {}
+require('bufferline').setup {
+  options = {
+    buffer_close_icon = '',
+  }
+}
 
 
 --------------
@@ -127,10 +131,16 @@ require'nvim-treesitter.configs'.setup {
     'javascript',
     'lua',
     'python',
+    'sql',
     'toml',
     'yaml',
+  },
+  indent = {
+    enable = true
   },
   highlight = {
     enable = false,
   }
 }
+
+require('tmux').setup()
