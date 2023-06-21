@@ -3,7 +3,7 @@ return {
   'alexghergh/nvim-tmux-navigation',
 
   --Theme/Appearance
-  'feline-nvim/feline.nvim',
+  'nvim-lualine/lualine.nvim',
   'akinsho/bufferline.nvim',
   'lukas-reineke/indent-blankline.nvim',
   'folke/tokyonight.nvim',
@@ -11,8 +11,7 @@ return {
   --Basics
   'nvim-lua/plenary.nvim',
   'folke/which-key.nvim',
-  'junegunn/fzf',
-  'junegunn/fzf.vim',
+  'ibhagwan/fzf-lua',
   'terrortylor/nvim-comment',
   'nvim-tree/nvim-tree.lua',
   'nvim-tree/nvim-web-devicons',
@@ -38,13 +37,14 @@ return {
   --Snippet
   'honza/vim-snippets',
   'mg979/vim-visual-multi',
-  'hrsh7th/cmp-vsnip',
+  'saadparwaiz1/cmp_luasnip',
   'L3MON4D3/LuaSnip',
 
   --Language/Syntax
   'williamboman/mason.nvim',
   'neovim/nvim-lspconfig',
   'williamboman/mason-lspconfig.nvim',
+  'glepnir/lspsaga.nvim',
   'nvim-treesitter/nvim-treesitter',
   'jay-babu/mason-null-ls.nvim',
   'hrsh7th/nvim-cmp',
