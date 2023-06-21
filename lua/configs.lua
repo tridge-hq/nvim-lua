@@ -162,3 +162,9 @@ require'nvim-treesitter.configs'.setup {
 ------------
 -- FzfLua --
 require'fzf-lua'.setup {'fzf-native'}
+
+---------------
+-- dadbob-ui --
+vim.g.ftplugin_sql_omni_key = '<C-;>'
+vim.g.db_ui_use_nerd_fonts = 1
+vim.g.db_ui_show_database_icon = 1

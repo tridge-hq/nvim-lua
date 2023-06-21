@@ -31,7 +31,6 @@ return {
   'michaeljsmith/vim-indent-object',
   'nathanaelkane/vim-indent-guides',
   'mhinz/vim-startify',
-  'folke/which-key.nvim',
   'tiagovla/scope.nvim',
 
   --Snippet
