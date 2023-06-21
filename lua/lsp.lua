@@ -18,15 +18,8 @@ require('mason-lspconfig').setup {
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-local on_attach = function(_, bufnr)
-  -- Enable completion triggered by <c-x><c-o>
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-end
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
 require('lspconfig')['pyright'].setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
   settings = {
     python = {
       analysis = {
@@ -38,8 +31,6 @@ require('lspconfig')['pyright'].setup {
 }
 
 require('lspconfig')['lua_ls'].setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
   settings = {
     Lua = {
       diagnostics = {
@@ -58,10 +49,7 @@ for _, value in ipairs({
   'tsserver',
   'yamlls',
 }) do
-  require('lspconfig')[value].setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-  }
+  require('lspconfig')[value].setup {}
 end
 
 
@@ -107,6 +95,9 @@ cmp.setup.cmdline(':', {
 
 require('lspsaga').setup({
   lightbulb = {
+    enable = false,
+  },
+  symbol_in_winbar = {
     enable = false,
   }
 })
