@@ -57,7 +57,9 @@ null_ls.setup({
     -- python
     null_ls.builtins.formatting.isort,
     null_ls.builtins.formatting.black,
-    null_ls.builtins.diagnostics.ruff,
+    null_ls.builtins.diagnostics.ruff.with({
+      extra_args = { "--select", "F" }
+    }),
 
     -- sql
     null_ls.builtins.diagnostics.sqlfluff.with({
@@ -156,3 +158,7 @@ require'nvim-treesitter.configs'.setup {
     enable = false,
   }
 }
+
+------------
+-- FzfLua --
+require'fzf-lua'.setup {'fzf-native'}
