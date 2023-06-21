@@ -44,15 +44,15 @@ vim.keymap.set('n', '<Leader>nt', ':NvimTreeFindFileToggle<CR>')
 
 ---------
 -- fzf --
-vim.keymap.set('n', '<Leader>f', ':Files<CR>')
-vim.keymap.set('n', '<Leader>b', ':Buffer<CR>')
-vim.keymap.set('n', '<Leader>bl', ':BLines<CR>')
-vim.keymap.set('n', '<Leader>l', ':Lines<CR>')
-vim.keymap.set('n', '<Leader>gf', ':GFiles<CR>')
-vim.keymap.set('n', '<Leader>gs', ':GFiles?<CR>')
-vim.keymap.set('n', '<Leader>gco', ':Commits<CR>')
-vim.keymap.set('n', '<Leader>gbc', ':BCommits<CR>')
-vim.keymap.set('n', '<Leader>aa', ':Ag ')
+vim.keymap.set('n', '<Leader>f', ':FzfLua files<CR>')
+vim.keymap.set('n', '<Leader>b', ':FzfLua buffers<CR>')
+vim.keymap.set('n', '<Leader>bl', ':FzfLua bLines<CR>')
+vim.keymap.set('n', '<Leader>l', ':FzfLua lines<CR>')
+vim.keymap.set('n', '<Leader>gf', ':FzfLua git_files<CR>')
+vim.keymap.set('n', '<Leader>gs', ':FzfLua git_status<CR>')
+vim.keymap.set('n', '<Leader>gco', 'FzfLua git_commits<CR>')
+vim.keymap.set('n', '<Leader>gbc', ':FzfLua git_bcommits<CR>')
+vim.keymap.set('n', '<Leader>aa', ':FzfLua grep_project<CR>')
 
 --------------
 -- Fugitive --
@@ -109,5 +109,26 @@ vim.keymap.set('n', '<Leader>gd', ':Gitsigns diffthis<CR>')
 
 ------------
 -- dadbod --
-
 vim.keymap.set('n', '<Leader>db', ':DBUIToggle<CR>')
+
+------------
+--  lsp  ---
+local opts = { noremap = true, silent = true }
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
+
+vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+vim.keymap.set('n', 'gd', ':Lspsaga goto_definition<CR>', opts)
+vim.keymap.set('n', 'K', ':Lspsaga hover_doc<CR>', opts)
+vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
+vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
+-- vim.keymap.set('n', '<space>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, opts)
+vim.keymap.set('n', '<space>D', ':Lspsaga goto_type_definition<CR>', opts)
+vim.keymap.set('n', '<space>rn', ':Lspsaga rename<CR>', opts)
+vim.keymap.set('n', '<space>ca', ':Lspsaga code_action<CR>', opts)
+vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, opts)

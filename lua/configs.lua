@@ -58,6 +58,14 @@ null_ls.setup({
     null_ls.builtins.formatting.isort,
     null_ls.builtins.formatting.black,
     null_ls.builtins.diagnostics.ruff,
+
+    -- sql
+    null_ls.builtins.diagnostics.sqlfluff.with({
+      extra_args = { "--dialect", "snowflake" },
+    }),
+    null_ls.builtins.formatting.sqlfluff.with({
+      extra_args = { "--dialect", "snowflake" },
+    }),
   },
   diagnostics_format = "[#{c}] #{m} (#{s})",
   debounce = 250,
@@ -71,10 +79,12 @@ vim.g.startify_session_persistence = 1
 
 
 ------------
--- feline --
-require('feline').setup()
-require('feline').winbar.setup()
-
+-- lualine --
+require("lualine").setup({
+  options = {
+    theme = "tokyonight",
+  }
+})
 
 -----------
 -- scope --
@@ -120,7 +130,10 @@ require('mason-null-ls').setup({
     'eslint_d',
 
     --lua
-    "stylua",
+    'stylua',
+
+    --sql
+    'sqlfluff',
   },
   automatic_installation = true,
 })
@@ -130,6 +143,7 @@ require'nvim-treesitter.configs'.setup {
     'go',
     'javascript',
     'lua',
+    'markdown_inline',
     'python',
     'sql',
     'toml',
