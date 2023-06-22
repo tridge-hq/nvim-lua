@@ -1,6 +1,10 @@
 -- vim core
 
 vim.g.mapleader = ','
+
+-- vim sql_omni_key
+-- https://neovim.io/doc/user/ft_sql.html
+vim.g.ftplugin_sql_omni_key = '<C-;>'
 -- vim.o.syntax = 'enable'
 vim.o.nocompatible = true
 vim.o.autoindent = true
@@ -86,3 +90,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, opts)
   end,
 })
+
+---------------
+-- dadbob-ui --
+vim.g.db_ui_use_nerd_fonts = 1
+vim.g.db_ui_show_database_icon = 1
