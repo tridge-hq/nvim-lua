@@ -24,7 +24,7 @@ require('lspconfig')['pyright'].setup {
     python = {
       analysis = {
         diagnosticMode = 'openFilesOnly',
-        useLibraryCodeForTypes = false,
+        typeCheckingMode = "off",
       },
     },
   },
