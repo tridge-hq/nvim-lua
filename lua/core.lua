@@ -77,7 +77,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
     local opts = { buffer = ev.buf }
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-    vim.keymap.set('n', 'gd', ':Lspsaga goto_definition<CR>', opts)
+    -- vim.keymap.set('n', 'gd', ':Lspsaga goto_definition<CR>', opts)
     vim.keymap.set('n', 'K', ':Lspsaga hover_doc<CR>', opts)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
     vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
