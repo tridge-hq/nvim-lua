@@ -64,7 +64,7 @@ null_ls.setup({
       extra_args = { "--dialect", "snowflake" },
     }),
     null_ls.builtins.formatting.sqlfluff.with({
-      extra_args = { "--dialect", "snowflake" },
+      extra_args = { "--dialect", "snowflake", "-f" },
     }),
   },
   diagnostics_format = "[#{c}] #{m} (#{s})",
@@ -156,7 +156,3 @@ require'nvim-treesitter.configs'.setup {
     enable = false,
   }
 }
-
-------------
--- FzfLua --
-require'fzf-lua'.setup {'fzf-native'}

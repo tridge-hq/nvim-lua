@@ -11,7 +11,8 @@ return {
   --Basics
   'nvim-lua/plenary.nvim',
   'folke/which-key.nvim',
-  'ibhagwan/fzf-lua',
+  'junegunn/fzf',
+  'junegunn/fzf.vim',
   'terrortylor/nvim-comment',
   'nvim-tree/nvim-tree.lua',
   'nvim-tree/nvim-web-devicons',
