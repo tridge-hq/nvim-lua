@@ -57,10 +57,10 @@ null_ls.setup({
     -- python
     null_ls.builtins.formatting.isort,
     null_ls.builtins.formatting.ruff.with({
-      extra_args = { "--extend-select", "I,Q,W", "--ignore", "E501" }
+      extra_args = { "--extend-select", "I", "--ignore", "E501" }
     }),
     null_ls.builtins.diagnostics.ruff.with({
-      extra_args = { "--extend-select", "I,Q,W", "--ignore", "E501" }
+      extra_args = { "--extend-select", "I", "--ignore", "E501" }
     }),
 
     -- sql
