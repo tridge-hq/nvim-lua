@@ -52,7 +52,7 @@ vim.keymap.set('n', '<Leader>gf', ':GFiles<CR>')
 vim.keymap.set('n', '<Leader>gs', ':GFiles?<CR>')
 vim.keymap.set('n', '<Leader>gco', ':Commits<CR>')
 vim.keymap.set('n', '<Leader>gbc', ':BCommits<CR>')
-vim.keymap.set('n', '<Leader>aa', ':Ag ')
+vim.keymap.set('n', '<Leader>aa', ':Ag<CR>')
 
 --------------
 -- Fugitive --

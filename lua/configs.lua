@@ -56,15 +56,19 @@ null_ls.setup({
 
     -- python
     null_ls.builtins.formatting.isort,
-    null_ls.builtins.formatting.ruff,
-    null_ls.builtins.diagnostics.ruff,
+    null_ls.builtins.formatting.ruff.with({
+      extra_args = { "--extend-select", "I,Q,W", "--ignore", "E501" }
+    }),
+    null_ls.builtins.diagnostics.ruff.with({
+      extra_args = { "--extend-select", "I,Q,W", "--ignore", "E501" }
+    }),
 
     -- sql
     null_ls.builtins.diagnostics.sqlfluff.with({
-      extra_args = { "--dialect", "snowflake" },
+      extra_args = { "--dialect", "postgres" },
     }),
     null_ls.builtins.formatting.sqlfluff.with({
-      extra_args = { "--dialect", "snowflake", "-f", "-q", "--FIX-EVEN-UNPARSABLE" },
+      extra_args = { "--dialect", "postgres", "-f", "-q", "--FIX-EVEN-UNPARSABLE" },
     }),
   },
   diagnostics_format = "[#{c}] #{m} (#{s})",
@@ -122,8 +126,6 @@ require('mason').setup()
 require('mason-null-ls').setup({
   ensure_installed = {
     --python
-    'black',
-    'isort',
     'ruff',
 
     --javascript
