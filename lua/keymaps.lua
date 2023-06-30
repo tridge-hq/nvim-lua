@@ -44,15 +44,15 @@ vim.keymap.set('n', '<Leader>nt', ':NvimTreeFindFileToggle<CR>')
 
 ---------
 -- fzf --
-vim.keymap.set('n', '<Leader>f', ':FzfLua files<CR>')
-vim.keymap.set('n', '<Leader>b', ':FzfLua buffers<CR>')
-vim.keymap.set('n', '<Leader>bl', ':FzfLua bLines<CR>')
-vim.keymap.set('n', '<Leader>l', ':FzfLua lines<CR>')
-vim.keymap.set('n', '<Leader>gf', ':FzfLua git_files<CR>')
-vim.keymap.set('n', '<Leader>gs', ':FzfLua git_status<CR>')
-vim.keymap.set('n', '<Leader>gco', 'FzfLua git_commits<CR>')
-vim.keymap.set('n', '<Leader>gbc', ':FzfLua git_bcommits<CR>')
-vim.keymap.set('n', '<Leader>aa', ':FzfLua grep_project<CR>')
+vim.keymap.set('n', '<Leader>f', ':Files<CR>')
+vim.keymap.set('n', '<Leader>b', ':Buffer<CR>')
+vim.keymap.set('n', '<Leader>bl', ':BLines<CR>')
+vim.keymap.set('n', '<Leader>l', ':Lines<CR>')
+vim.keymap.set('n', '<Leader>gf', ':GFiles<CR>')
+vim.keymap.set('n', '<Leader>gs', ':GFiles?<CR>')
+vim.keymap.set('n', '<Leader>gco', ':Commits<CR>')
+vim.keymap.set('n', '<Leader>gbc', ':BCommits<CR>')
+vim.keymap.set('n', '<Leader>aa', ':Ag<CR>')
 
 --------------
 -- Fugitive --
