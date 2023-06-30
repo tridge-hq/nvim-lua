@@ -55,7 +55,6 @@ null_ls.setup({
     null_ls.builtins.diagnostics.eslint_d,
 
     -- python
-    null_ls.builtins.formatting.isort,
     null_ls.builtins.formatting.ruff.with({
       extra_args = { "--extend-select", "I", "--ignore", "E501" }
     }),
