@@ -55,12 +55,9 @@ null_ls.setup({
     null_ls.builtins.diagnostics.eslint_d,
 
     -- python
-    null_ls.builtins.formatting.ruff.with({
-      extra_args = { "--extend-select", "I", "--ignore", "E501" }
-    }),
-    null_ls.builtins.diagnostics.ruff.with({
-      extra_args = { "--extend-select", "I", "--ignore", "E501" }
-    }),
+    null_ls.builtins.formatting.isort,
+    null_ls.builtins.formatting.black,
+    null_ls.builtins.diagnostics.flake8,
 
     -- sql
     null_ls.builtins.diagnostics.sqlfluff.with({
@@ -123,19 +120,6 @@ require('nvim_comment').setup({
 require('mason').setup()
 
 require('mason-null-ls').setup({
-  ensure_installed = {
-    --python
-    'ruff',
-
-    --javascript
-    'eslint_d',
-
-    --lua
-    'stylua',
-
-    --sql
-    'sqlfluff',
-  },
   automatic_installation = true,
 })
 
