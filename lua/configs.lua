@@ -61,10 +61,10 @@ null_ls.setup({
 
     -- sql
     null_ls.builtins.diagnostics.sqlfluff.with({
-      extra_args = { "--dialect", "postgres" },
+      extra_args = { "--dialect", "snowflake" },
     }),
     null_ls.builtins.formatting.sqlfluff.with({
-      extra_args = { "--dialect", "postgres", "-f", "-q", "--FIX-EVEN-UNPARSABLE" },
+      extra_args = { "--dialect", "snowflake", "-f", "-q", "--FIX-EVEN-UNPARSABLE" },
     }),
   },
   diagnostics_format = "[#{c}] #{m} (#{s})",

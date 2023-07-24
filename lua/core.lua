@@ -71,26 +71,6 @@ vim.api.nvim_create_autocmd('BufEnter', {
   command = 'silent! lua SETLOCALPERFILETYPE()',
 })
 
-vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
-  callback = function(ev)
-    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
-    local opts = { buffer = ev.buf }
-    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-    -- vim.keymap.set('n', 'gd', ':Lspsaga goto_definition<CR>', opts)
-    vim.keymap.set('n', 'K', ':Lspsaga hover_doc<CR>', opts)
-    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-    vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
-    vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
-    vim.keymap.set('n', '<space>D', ':Lspsaga goto_type_definition<CR>', opts)
-    vim.keymap.set('n', '<space>rn', ':Lspsaga rename<CR>', opts)
-    vim.keymap.set('n', '<space>ca', ':Lspsaga code_action<CR>', opts)
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-    vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, opts)
-  end,
-})
-
 ---------------
 -- dadbob-ui --
 vim.g.db_ui_use_nerd_fonts = 1
