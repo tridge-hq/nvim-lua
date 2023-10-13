@@ -1,6 +1,8 @@
 #!/bin/bash
 
-cd ~
+TIMESTAMP=$(date '+%Y-%m-%d_%H:%M:%S')
+
+cd $HOME
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
@@ -15,47 +17,53 @@ brew install --cask font-hack-nerd-font
 # Install python packages
 sudo easy_install pip
 
-# Install Oh My Zsh
-if [ -d "~/.oh-my-zsh" ]; then
-    cd .oh-my-zsh && git pull origin master && cd ~
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting
-    git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
+# Update or install Oh My Zsh
+if test -d "$HOME/.oh-my-zsh"; then
+  echo ".oh-my-zsh found in the system, update existing repository..."
+  cd $HOME/.oh-my-zsh && git pull origin master && cd $HOME
 else
-    sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+  echo "Installing .oh-my-zsh..."
+  sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+fi
+if ! test -d "$HOME/.oh-my-zsh/plugins/zsh-syntax-highlighting"; then
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.oh-my-zsh/plugins/zsh-syntax-highlighting
+fi
+if ! test -d "$HOME/.oh-my-zsh/plugins/zsh-autosuggestions"; then
+  git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.oh-my-zsh/plugins/zsh-autosuggestions
 fi
 
 # Clone nvim repo
-if [ -d "~/nvim-lua" ]; then
-    cd nvim-lua && git pull origin main && cd ~
+if test -d "$HOME/nvim-lua"; then
+    cd nvim-lua && git pull origin main && cd $HOME
 else
-    git clone https://github.com/tridge-hq/nvim-lua.git
+    git clone https://github.com/tridge-hq/nvim-lua.git $HOME/nvim-lua
 fi
 
 # nvim related
-mkdir -p ~/.tmp
-mkdir -p ~/.tmp/vim
-mkdir -p ~/.tmp/vim/backup
-mkdir -p ~/.tmp/vim/swap
-mkdir -p ~/.tmp/vim/undo
+mkdir -p $HOME/.tmp
+mkdir -p $HOME/.tmp/vim
+mkdir -p $HOME/.tmp/vim/backup
+mkdir -p $HOME/.tmp/vim/swap
+mkdir -p $HOME/.tmp/vim/undo
 
-mkdir -p ~/.config
-mkdir -p ~/.config/nvim
+mkdir -p $HOME/.config
+mkdir -p $HOME/.config/nvim
 
 # Link files
-ln -sf ~/nvim-lua/init.lua ~/.config/nvim/init.lua
-ln -sf ~/nvim-lua/lua ~/.config/nvim/
-if [ -f "~/.zshrc" ]; then
-    mv ~/.zshrc ~/.zshrc_old
+ln -sf $HOME/nvim-lua/init.lua $HOME/.config/nvim/init.lua
+ln -sf $HOME/nvim-lua/lua $HOME/.config/nvim/
+if test -f "$HOME/.zshrc"; then
+    mv $HOME/.zshrc $HOME/.zshrc_old_$TIMESTAMP
 fi
-ln -sf ~/nvim-lua/zshrc ~/.zshrc
-if [ -f "~/.tmux.conf" ]; then
-    mv ~/.tmux.conf ~/.tmux.conf_old
+ln -sf $HOME/nvim-lua/zshrc $HOME/.zshrc
+if test -f "$HOME/.tmux.conf"; then
+    mv $HOME/.tmux.conf $HOME/.tmux.conf_old_$TIMESTAMP
 fi
-ln -sf ~/nvim-lua/tmux.conf ~/.tmux.conf
+ln -sf $HOME/nvim-lua/tmux.conf $HOME/.tmux.conf
 
 # Install tpm
-if [ -d ".tmux/plugins/tpm " ]; then
-    cd .tmux/plugins/tpm && git pull origin master && cd ~
+if test -d "$HOME/.tmux/plugins/tpm"; then
+    cd $HOME/.tmux/plugins/tpm && git pull origin master && cd $HOME
 else
-    git clone https://github.com/tmux-plugins/tpm .tmux/plugins/tpm
+    git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 fi
