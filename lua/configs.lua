@@ -141,3 +141,8 @@ require'nvim-treesitter.configs'.setup {
     enable = false,
   }
 }
+
+
+---------------
+-- text-case --
+require('textcase').setup {}

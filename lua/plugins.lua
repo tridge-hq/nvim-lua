@@ -32,6 +32,7 @@ return {
   'nathanaelkane/vim-indent-guides',
   'mhinz/vim-startify',
   'tiagovla/scope.nvim',
+  'johmsalas/text-case.nvim',
 
   --Snippet
   'honza/vim-snippets',
