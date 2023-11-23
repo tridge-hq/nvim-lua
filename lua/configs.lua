@@ -1,20 +1,19 @@
-vim.cmd [[colorscheme tokyonight-moon]]
+vim.cmd([[colorscheme tokyonight-moon]])
 
 ---------------
 -- nvim-tree --
-require('nvim-tree').setup({
+require("nvim-tree").setup({
   actions = {
     open_file = {
       quit_on_open = true,
     },
-  }
+  },
 })
-
 
 ---------------
 -- which-key --
-local wk = require('which-key')
-wk.setup {}
+local wk = require("which-key")
+wk.setup({})
 
 --------------
 -- Undotree --
@@ -23,16 +22,13 @@ vim.g.undotree_SplitWidth = 40
 vim.g.undotree_DiffpanelHeight = 20
 vim.g.undotree_DiffAutoOpen = 1
 
-
 ---------------
 -- Gitgutter --
 vim.g.gitgutter_max_signs = 5000
 
-
 ------------
 -- tagbar --
 vim.g.tagbar_left = 1
-
 
 --------------------
 -- vim-jsx-pretty --
@@ -41,10 +37,9 @@ vim.g.tagbar_left = 1
 -- vim.g.vim_jsx_pretty_colorful_config = 1
 -- vim.g.vim_jsx_pretty_highlight_close_tag = 1
 
-
 -------------
 -- null-ls --
-local null_ls = require('null-ls')
+local null_ls = require("null-ls")
 null_ls.setup({
   sources = {
     -- lua
@@ -55,9 +50,9 @@ null_ls.setup({
     null_ls.builtins.diagnostics.eslint_d,
 
     -- python
-    null_ls.builtins.formatting.isort,
-    null_ls.builtins.formatting.black,
-    null_ls.builtins.diagnostics.flake8,
+    null_ls.builtins.diagnostics.ruff.with({ extra_args = { "--extend-select", "I" } }),
+    null_ls.builtins.formatting.ruff.with({ extra_args = { "--extend-select", "I" } }),
+    null_ls.builtins.formatting.ruff_format,
 
     -- sql
     null_ls.builtins.diagnostics.sqlfluff.with({
@@ -72,77 +67,70 @@ null_ls.setup({
 })
 -- Ref: https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
 
-
 --------------
 -- Startify --
 vim.g.startify_session_persistence = 1
-
 
 ------------
 -- lualine --
 require("lualine").setup({
   options = {
     theme = "tokyonight",
-  }
+  },
 })
 
 -----------
 -- scope --
-require('scope').setup()
-
+require("scope").setup()
 
 ----------------
 -- bufferline --
-require('bufferline').setup {
+require("bufferline").setup({
   options = {
-    buffer_close_icon = '',
-  }
-}
-
+    buffer_close_icon = "",
+  },
+})
 
 --------------
 -- gitsigns --
-require('gitsigns').setup {}
-
+require("gitsigns").setup({})
 
 ------------------
 -- nvim-comment --
-require('nvim_comment').setup({
+require("nvim_comment").setup({
   comment_empty = false,
   comment_empty_trim_whitespace = false,
-  line_mapping = '<Leader>cl',
-  operator_mapping = '<Leader>cc',
+  line_mapping = "<Leader>cl",
+  operator_mapping = "<Leader>cc",
 })
-
 
 -----------
 -- Mason --
-require('mason').setup()
+require("mason").setup()
 
-require('mason-null-ls').setup({
+require("mason-null-ls").setup({
   automatic_installation = true,
 })
 
-require'nvim-treesitter.configs'.setup {
+require("nvim-treesitter.configs").setup({
   ensure_installed = {
-    'go',
-    'javascript',
-    'lua',
-    'markdown_inline',
-    'python',
-    'sql',
-    'toml',
-    'yaml',
+    "go",
+    "javascript",
+    "lua",
+    "markdown_inline",
+    "python",
+    "sql",
+    "toml",
+    "yaml",
   },
   indent = {
-    enable = true
+    enable = true,
   },
   highlight = {
     enable = false,
-  }
-}
-
+  },
+})
 
 ---------------
 -- text-case --
-require('textcase').setup {}
+require("textcase").setup({})
