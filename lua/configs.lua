@@ -134,3 +134,10 @@ require("nvim-treesitter.configs").setup({
 ---------------
 -- text-case --
 require("textcase").setup({})
+
+--------------
+-- sort.vim --
+require("sort").setup({
+  -- Input configuration here.
+  -- Refer to the configuration section below for options.
+})

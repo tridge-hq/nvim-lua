@@ -33,6 +33,7 @@ return {
   "mhinz/vim-startify",
   "tiagovla/scope.nvim",
   "johmsalas/text-case.nvim",
+  "sQVe/sort.nvim",
 
   --Snippet
   "honza/vim-snippets",
