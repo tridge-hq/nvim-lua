@@ -13,7 +13,7 @@ return {
   "folke/which-key.nvim",
   "junegunn/fzf",
   "junegunn/fzf.vim",
-  "terrortylor/nvim-comment",
+  "numToStr/Comment.nvim",
   "nvim-tree/nvim-tree.lua",
   "nvim-tree/nvim-web-devicons",
   "tpope/vim-surround",

@@ -96,12 +96,16 @@ require("bufferline").setup({
 require("gitsigns").setup({})
 
 ------------------
--- nvim-comment --
-require("nvim_comment").setup({
-  comment_empty = false,
-  comment_empty_trim_whitespace = false,
-  line_mapping = "<Leader>cl",
-  operator_mapping = "<Leader>cc",
+-- comment --
+require('Comment').setup({
+  toggler = {
+        ---Line-comment toggle keymap
+        line = '<Leader>cc',
+    },
+  opleader = {
+        ---Line-comment keymap
+        line = '<Leader>cc',
+    },
 })
 
 -----------
