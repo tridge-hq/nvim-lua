@@ -13,6 +13,8 @@ brew install --force git the_silver_searcher tmux zsh fzf universal-ctags wget h
 # Font
 brew tap homebrew/cask-fonts
 brew install --cask font-hack-nerd-font
+brew install --cask font-jetbrains-mono-nerd-font
+
 
 # Install python packages
 sudo easy_install pip

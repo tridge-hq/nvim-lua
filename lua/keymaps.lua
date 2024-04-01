@@ -116,3 +116,11 @@ vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
 vim.keymap.set("v", "<Leader>s", ":Sort")
 -- Single line:[range]Sort[!] [delimiter][b][i][n][o][u][x]
 -- Multiple lines: fed into :sort | See details: ":help sort"
+
+------------
+-- ollama --
+vim.keymap.set("n", "<Leader>oo", ":<c-u>lua require('ollama').prompt()<cr>")
+vim.keymap.set("v", "<Leader>oo", ":<c-u>lua require('ollama').prompt()<cr>")
+vim.keymap.set("n", "<Leader>og", ":<c-u>lua require('ollama').prompt('Generate_Code')<cr>")
+vim.keymap.set("v", "<Leader>og", ":<c-u>lua require('ollama').prompt('Generate_Code')<cr>")
+vim.keymap.set("n", "<leader>om", ":OllamaModel")

@@ -40,6 +40,8 @@ return {
   "mg979/vim-visual-multi",
   "saadparwaiz1/cmp_luasnip",
   "L3MON4D3/LuaSnip",
+  { "codota/tabnine-nvim",   build = "./dl_binaries.sh" },
+  "nomnivore/ollama.nvim",
 
   --Language/Syntax
   "williamboman/mason.nvim",
@@ -47,13 +49,17 @@ return {
   "williamboman/mason-lspconfig.nvim",
   "nvim-treesitter/nvim-treesitter",
   "jay-babu/mason-null-ls.nvim",
+
   "hrsh7th/nvim-cmp",
   "hrsh7th/cmp-nvim-lsp",
   "hrsh7th/cmp-buffer",
   "hrsh7th/cmp-path",
   "hrsh7th/cmp-cmdline",
   "mitsuhiko/vim-jinja",
-  "nvimtools/none-ls.nvim",
+  {
+    "nvimtools/none-ls.nvim",
+    commit = "7e146f3a188853843bb4ca1bff24c912bb9b7177",
+  },
 
   --Git
   "airblade/vim-gitgutter",
