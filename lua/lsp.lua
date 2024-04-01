@@ -70,6 +70,9 @@ for _, value in ipairs({
   "taplo",
   "tsserver",
   "yamlls",
+  "ruff",
+  "ruff_lsp",
+  "eslint",
 }) do
   lspconfig[value].setup({
     on_attach = on_attach,

@@ -85,11 +85,7 @@ require("scope").setup()
 
 ----------------
 -- bufferline --
-require("bufferline").setup({
-  options = {
-    buffer_close_icon = "",
-  },
-})
+require("bufferline").setup()
 
 --------------
 -- gitsigns --
@@ -140,4 +136,34 @@ require("textcase").setup({})
 require("sort").setup({
   -- Input configuration here.
   -- Refer to the configuration section below for options.
+})
+
+-------------
+-- tabnine --
+require("tabnine").setup({
+  disable_auto_comment = true,
+  accept_keymap = "<Tab>",
+  dismiss_keymap = "<C-]>",
+  debounce_ms = 800,
+  suggestion_color = { gui = "#808080", cterm = 244 },
+  exclude_filetypes = { "NvimTree" },
+  log_file_path = nil, -- absolute path to Tabnine log file
+})
+
+------------
+-- ollama --
+require("ollama").setup({
+  -- All the user commands added by the plugin
+  cmd = { "Ollama", "OllamaModel", "OllamaServe", "OllamaServeStop" },
+  opts = {
+    model = "llama2",
+    url = "http://127.0.0.1:11434",
+    serve = {
+      on_start = false,
+      command = "ollama",
+      args = { "serve" },
+      stop_command = "pkill",
+      stop_args = { "-SIGTERM", "ollama" },
+    },
+  },
 })

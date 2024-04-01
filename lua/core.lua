@@ -57,6 +57,8 @@ vim.o.mouse = "a"
 vim.o.updatetime = 100
 vim.o.timeoutlen = 400
 vim.o.termguicolors = true
+vim.g.indent_guides_enable_on_vim_startup = 1
+
 
 function SETLOCALPERFILETYPE()
   local filetype = vim.bo.filetype
