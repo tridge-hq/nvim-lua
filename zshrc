@@ -25,3 +25,4 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 [ -f "$HOME/.zshrc.local" ] && source ~/.zshrc.local
+[ -f "$HOME/.zshrc.conda" ] && source ~/.zshrc.local
