@@ -8,6 +8,9 @@ require("nvim-tree").setup({
       quit_on_open = true,
     },
   },
+  view = {
+    width = 40,
+  },
 })
 
 ---------------
