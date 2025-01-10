@@ -1,11 +1,10 @@
 -- lsp
 require("mason-lspconfig").setup({
   ensure_installed = {
-    "gopls",
     "lua_ls",
     "pyright",
     "taplo",
-    "tsserver",
+    "ts_ls",
     "yamlls",
   },
   automatic_installation = true,
@@ -68,10 +67,8 @@ lspconfig["lua_ls"].setup({
 for _, value in ipairs({
   "gopls",
   "taplo",
-  "tsserver",
   "yamlls",
   "ruff",
-  "ruff_lsp",
   "eslint",
 }) do
   lspconfig[value].setup({

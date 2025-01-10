@@ -58,12 +58,7 @@ null_ls.setup({
     null_ls.builtins.formatting.ruff_format,
 
     -- sql
-    null_ls.builtins.diagnostics.sqlfluff.with({
-      extra_args = { "--dialect", "snowflake" },
-    }),
-    null_ls.builtins.formatting.sqlfluff.with({
-      extra_args = { "--dialect", "snowflake", "-f", "-q", "--FIX-EVEN-UNPARSABLE" },
-    }),
+    null_ls.builtins.formatting.sqlfmt,
   },
   diagnostics_format = "[#{c}] #{m} (#{s})",
   debounce = 250,
