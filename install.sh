@@ -8,13 +8,12 @@ cd $HOME
 
 # Install other packages
 brew install --force git the_silver_searcher tmux zsh fzf universal-ctags wget httpie \
-    lsd pyenv pyenv-virtualenv direnv neovim bat
+    lsd direnv neovim bat
 
 # Font
 brew tap homebrew/cask-fonts
 brew install --cask font-hack-nerd-font
 brew install --cask font-jetbrains-mono-nerd-font
-
 
 # Install python packages
 sudo easy_install pip
@@ -32,13 +31,6 @@ if ! test -d "$HOME/.oh-my-zsh/plugins/zsh-syntax-highlighting"; then
 fi
 if ! test -d "$HOME/.oh-my-zsh/plugins/zsh-autosuggestions"; then
   git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.oh-my-zsh/plugins/zsh-autosuggestions
-fi
-
-# Clone nvim repo
-if test -d "$HOME/nvim-lua"; then
-    cd nvim-lua && git pull origin main && cd $HOME
-else
-    git clone https://github.com/tridge-hq/nvim-lua.git $HOME/nvim-lua
 fi
 
 # nvim related
