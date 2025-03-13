@@ -40,7 +40,6 @@ return {
   "mg979/vim-visual-multi",
   "saadparwaiz1/cmp_luasnip",
   "L3MON4D3/LuaSnip",
-  { "codota/tabnine-nvim", build = "./dl_binaries.sh" },
   "nomnivore/ollama.nvim",
 
   --Language/Syntax
