@@ -34,6 +34,16 @@ return {
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		event = "BufReadPost",
+		config = function()
+			require("ibl").setup({
+				enabled = true,  -- Enable by default
+				scope = {
+					enabled = true,
+					show_start = true,
+					show_end = false,
+				},
+			})
+		end,
 	},
 
 	-- File Navigation (on demand)

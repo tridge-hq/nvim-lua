@@ -25,7 +25,7 @@ wk.setup({
 			suggestions = 20,
 		},
 	},
-	window = {
+	win = {
 		border = "rounded",
 		position = "bottom",
 		margin = { 1, 0, 1, 0 },
@@ -217,10 +217,8 @@ require("conform").setup({
 		rust = { "rustfmt" },
 		sql = { "sqlfmt" },
 	},
-	format_on_save = {
-		timeout_ms = 500,
-		lsp_fallback = true,
-	},
+	-- Disabled auto-format on save (use :Format or <Leader>cf manually)
+	format_on_save = false,
 })
 
 -- Create format command
