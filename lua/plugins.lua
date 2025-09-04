@@ -146,7 +146,10 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		event = { "BufReadPre", "BufNewFile" },
-		dependencies = { "williamboman/mason.nvim" },
+		dependencies = { 
+			"williamboman/mason.nvim",
+			{ "hrsh7th/cmp-nvim-lsp", lazy = false },  -- Ensure this loads immediately
+		},
 		config = function()
 			require("lsp")
 		end,
@@ -185,7 +188,8 @@ return {
 	-- Completion (on insert)
 	{
 		"hrsh7th/nvim-cmp",
-		event = { "InsertEnter", "CmdlineEnter" },
+		event = { "VeryEarly", "BufReadPre", "InsertEnter", "CmdlineEnter" },
+		lazy = false,  -- Load immediately to ensure it's available for LSP
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-nvim-lsp-signature-help",
@@ -203,15 +207,38 @@ return {
 						require("luasnip").lsp_expand(args.body)
 					end,
 				},
+				window = {
+					completion = cmp.config.window.bordered(),
+					documentation = cmp.config.window.bordered(),
+				},
 				mapping = cmp.mapping.preset.insert({
 					["<CR>"] = cmp.mapping.confirm({ select = false }),
 				}),
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
+					{ name = "nvim_lsp_signature_help" },
 					{ name = "luasnip" },
 				}, {
-					{ name = "buffer" },
+					{ name = "buffer", keyword_length = 3 },
 					{ name = "path" },
+				}),
+			})
+			
+			-- Setup for / and ? search
+			cmp.setup.cmdline({ "/", "?" }, {
+				mapping = cmp.mapping.preset.cmdline(),
+				sources = {
+					{ name = "buffer" },
+				},
+			})
+			
+			-- Setup for : command mode
+			cmp.setup.cmdline(":", {
+				mapping = cmp.mapping.preset.cmdline(),
+				sources = cmp.config.sources({
+					{ name = "path" },
+				}, {
+					{ name = "cmdline" },
 				}),
 			})
 		end,
@@ -298,7 +325,22 @@ return {
 	{
 		"kristijanhusak/vim-dadbod-completion",
 		ft = { "sql", "mysql", "plsql" },
-		dependencies = { "tpope/vim-dadbod" },
+		dependencies = { "tpope/vim-dadbod", "hrsh7th/nvim-cmp" },
+		config = function()
+			-- Set up dadbod completion only for SQL files
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = { "sql", "mysql", "plsql" },
+				callback = function()
+					local cmp = require("cmp")
+					cmp.setup.buffer({
+						sources = cmp.config.sources({
+							{ name = "vim_dadbod_completion" },
+							{ name = "buffer" },
+						}),
+					})
+				end,
+			})
+		end,
 	},
 	{ "mitsuhiko/vim-jinja", ft = { "jinja", "jinja2" } },
 	{

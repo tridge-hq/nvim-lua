@@ -29,6 +29,7 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 local cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if cmp_ok then
+  -- Use default_capabilities without passing an argument
   capabilities = cmp_nvim_lsp.default_capabilities()
 end
 
@@ -86,47 +87,7 @@ end
 
 -- 5. Global mappings (moved to keymaps.lua to avoid duplication)
 
--- 6. Setup nvim-cmp
-local cmp = require("cmp")
-cmp.setup({
-  snippet = {
-    expand = function(args)
-      require("luasnip").lsp_expand(args.body)
-    end,
-  },
-  window = {
-    completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered(),
-  },
-  mapping = cmp.mapping.preset.insert({
-    ["<CR>"] = cmp.mapping.confirm({ select = false }),
-  }),
-  sources = cmp.config.sources({
-    { name = "nvim_lsp" },
-    { name = "nvim_lsp_signature_help" },
-    { name = "luasnip" },
-    { name = "vim-dadbod-completion" },
-  }, {
-    { name = "buffer", keyword_length = 3 },
-    { name = "path" },
-  }),
-})
-
-cmp.setup.cmdline({ "/", "?" }, {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = {
-    { name = "buffer" },
-  },
-})
-
-cmp.setup.cmdline(":", {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = cmp.config.sources({
-    { name = "path" },
-  }, {
-    { name = "cmdline" },
-  }),
-})
+-- nvim-cmp setup moved to plugins.lua to avoid duplication
 
 -- LSP configuration loaded (mason-lspconfig bypassed)
 -- Use :Mason to manually install LSP servers
