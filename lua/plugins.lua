@@ -188,10 +188,10 @@ return {
 	-- Completion (on insert)
 	{
 		"hrsh7th/nvim-cmp",
-		event = { "VeryEarly", "BufReadPre", "InsertEnter", "CmdlineEnter" },
 		lazy = false,  -- Load immediately to ensure it's available for LSP
+		priority = 1000,  -- Load with high priority
 		dependencies = {
-			"hrsh7th/cmp-nvim-lsp",
+			{ "hrsh7th/cmp-nvim-lsp", lazy = false },
 			"hrsh7th/cmp-nvim-lsp-signature-help",
 			"hrsh7th/cmp-buffer",
 			"hrsh7th/cmp-path",
