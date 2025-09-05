@@ -36,7 +36,7 @@ return {
 		event = "BufReadPost",
 		config = function()
 			require("ibl").setup({
-				enabled = true,  -- Enable by default
+				enabled = true, -- Enable by default
 				scope = {
 					enabled = true,
 					show_start = true,
@@ -146,9 +146,9 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		event = { "BufReadPre", "BufNewFile" },
-		dependencies = { 
+		dependencies = {
 			"williamboman/mason.nvim",
-			{ "hrsh7th/cmp-nvim-lsp", lazy = false },  -- Ensure this loads immediately
+			{ "hrsh7th/cmp-nvim-lsp", lazy = false }, -- Ensure this loads immediately
 		},
 		config = function()
 			require("lsp")
@@ -175,21 +175,47 @@ return {
 				formatters_by_ft = {
 					lua = { "stylua" },
 					python = { "ruff_format", "ruff_fix" },
-					javascript = { "prettier" },
+					javascript = { "prettier", "eslint_d" },
+					typescript = { "prettier", "eslint_d" },
+					javascriptreact = { "prettier", "eslint_d" },
+					typescriptreact = { "prettier", "eslint_d" },
+					json = { "prettier" },
+					yaml = { "prettier" },
+					markdown = { "prettier" },
+					html = { "prettier" },
+					css = { "prettier" },
+					scss = { "prettier" },
+					go = { "gofmt", "goimports" },
+					rust = { "rustfmt" },
+					sql = { "sqlfmt" },
 				},
+				-- Disabled auto-format on save (use :Format or <Leader>cf manually)
 				format_on_save = {
-					timeout_ms = 500,
+					timeout_ms = 1000,
 					lsp_fallback = true,
 				},
 			})
+
+			-- Create Format command
+			vim.api.nvim_create_user_command("Format", function(args)
+				local range = nil
+				if args.count ~= -1 then
+					local end_line = vim.api.nvim_buf_get_lines(0, args.line2 - 1, args.line2, true)[1]
+					range = {
+						start = { args.line1, 0 },
+						["end"] = { args.line2, end_line:len() },
+					}
+				end
+				require("conform").format({ async = true, lsp_fallback = true, range = range })
+			end, { range = true })
 		end,
 	},
 
 	-- Completion (on insert)
 	{
 		"hrsh7th/nvim-cmp",
-		lazy = false,  -- Load immediately to ensure it's available for LSP
-		priority = 1000,  -- Load with high priority
+		lazy = false, -- Load immediately to ensure it's available for LSP
+		priority = 1000, -- Load with high priority
 		dependencies = {
 			{ "hrsh7th/cmp-nvim-lsp", lazy = false },
 			"hrsh7th/cmp-nvim-lsp-signature-help",
@@ -223,7 +249,7 @@ return {
 					{ name = "path" },
 				}),
 			})
-			
+
 			-- Setup for / and ? search
 			cmp.setup.cmdline({ "/", "?" }, {
 				mapping = cmp.mapping.preset.cmdline(),
@@ -231,7 +257,7 @@ return {
 					{ name = "buffer" },
 				},
 			})
-			
+
 			-- Setup for : command mode
 			cmp.setup.cmdline(":", {
 				mapping = cmp.mapping.preset.cmdline(),

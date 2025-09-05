@@ -129,17 +129,25 @@ vim.keymap.set("n", "<leader>om", ":OllamaModel")
 -- New Plugins --
 -----------------
 
--- Conform.nvim (Code Formatting) - Using 'c' prefix
-vim.keymap.set("n", "<Leader>cf", ":Format<CR>", { desc = "Format code" })
-vim.keymap.set("v", "<Leader>cf", ":Format<CR>", { desc = "Format selection" })
+-- Conform.nvim (Code Formatting) - Using Space+f
+vim.keymap.set("n", "<Space>f", ":Format<CR>", { desc = "Format code" })
+vim.keymap.set("v", "<Space>f", ":Format<CR>", { desc = "Format selection" })
 
 -- Spectre (Search & Replace) - Using 'r' prefix
 local spectre_ok, spectre = pcall(require, "spectre")
 if spectre_ok then
-  vim.keymap.set("n", "<Leader>ro", function() spectre.open() end, { desc = "Open Spectre" })
-  vim.keymap.set("n", "<Leader>rw", function() spectre.open_visual({ select_word = true }) end, { desc = "Replace current word" })
-  vim.keymap.set("v", "<Leader>rw", function() spectre.open_visual() end, { desc = "Replace selected" })
-  vim.keymap.set("n", "<Leader>rf", function() spectre.open_file_search() end, { desc = "Replace in file" })
+	vim.keymap.set("n", "<Leader>ro", function()
+		spectre.open()
+	end, { desc = "Open Spectre" })
+	vim.keymap.set("n", "<Leader>rw", function()
+		spectre.open_visual({ select_word = true })
+	end, { desc = "Replace current word" })
+	vim.keymap.set("v", "<Leader>rw", function()
+		spectre.open_visual()
+	end, { desc = "Replace selected" })
+	vim.keymap.set("n", "<Leader>rf", function()
+		spectre.open_file_search()
+	end, { desc = "Replace in file" })
 end
 
 -- Diffview (Git Visualization) - Using 'v' prefix
@@ -149,9 +157,10 @@ vim.keymap.set("n", "<Leader>vh", ":DiffviewFileHistory %<CR>", { desc = "View f
 vim.keymap.set("n", "<Leader>vH", ":DiffviewFileHistory<CR>", { desc = "View branch history" })
 vim.keymap.set("n", "<Leader>vr", ":DiffviewRefresh<CR>", { desc = "Refresh diff view" })
 
-
 -- Notify (Notifications) - Using 'q' prefix
 local notify_ok, notify = pcall(require, "notify")
 if notify_ok then
-  vim.keymap.set("n", "<Leader>qn", function() notify.dismiss() end, { desc = "Dismiss notifications" })
+	vim.keymap.set("n", "<Leader>qn", function()
+		notify.dismiss()
+	end, { desc = "Dismiss notifications" })
 end
