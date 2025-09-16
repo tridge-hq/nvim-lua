@@ -17,7 +17,7 @@ return {
 	-- UI Components (load after startup)
 	{
 		"nvim-lualine/lualine.nvim",
-		event = "VimEnter",
+		event = "vimEnter",
 		config = function()
 			require("lualine").setup({
 				options = { theme = "tokyonight" },
@@ -327,6 +327,16 @@ return {
 		end,
 	},
 
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		build = "cd app && yarn install",
+		init = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
+	},
+
 	-- Rarely used
 	{ "tpope/vim-repeat", keys = { "." } },
 	{ "tpope/vim-sensible", lazy = false },
@@ -376,7 +386,7 @@ return {
 		config = function()
 			require("claude-code").setup({
 				window = {
-					split_ratio = 0.6,
+					split_ratio = 0.85,
 					position = "botright",
 					enter_insert = true,
 					hide_numbers = true,

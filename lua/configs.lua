@@ -42,19 +42,19 @@ wk.setup({
 -- Register key groups
 wk.register({
 	["<leader>"] = {
+		["<space>"] = { name = "+lsp" },
+		b = { name = "+buffer" },
+		c = { name = "+code/format" },
+		d = { name = "+debug/dap" },
 		f = { name = "+find/fzf" },
 		g = { name = "+git" },
 		n = { name = "+nvim-tree" },
-		t = { name = "+tabs/tabular" },
-		b = { name = "+buffer" },
 		o = { name = "+ollama" },
-		s = { name = "+session/sort" },
-		c = { name = "+code/format" },
-		r = { name = "+replace/spectre" },
-		v = { name = "+view/diffview" },
-		d = { name = "+debug/dap" },
 		q = { name = "+quit/notify" },
-		["<space>"] = { name = "+lsp" },
+		r = { name = "+replace/spectre" },
+		s = { name = "+session/sort" },
+		t = { name = "+tabs/tabular" },
+		v = { name = "+view/diffview" },
 	},
 })
 

@@ -136,9 +136,9 @@ vim.keymap.set("v", "<Space>f", ":Format<CR>", { desc = "Format selection" })
 -- Spectre (Search & Replace) - Using 'r' prefix
 local spectre_ok, spectre = pcall(require, "spectre")
 if spectre_ok then
-	vim.keymap.set("n", "<Leader>ro", function()
-		spectre.open()
-	end, { desc = "Open Spectre" })
+	vim.keymap.set("n", "<Leader>rr", function()
+		spectre.toggle()
+	end, { desc = "Toggle Spectre" })
 	vim.keymap.set("n", "<Leader>rw", function()
 		spectre.open_visual({ select_word = true })
 	end, { desc = "Replace current word" })
