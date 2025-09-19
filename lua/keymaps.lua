@@ -42,7 +42,7 @@ vim.keymap.set("n", "<Leader>nt", ":NvimTreeFindFileToggle<CR>")
 ---------
 -- fzf --
 vim.keymap.set("n", "<Leader>f", ":Files<CR>")
-vim.keymap.set("n", "<Leader>b", ":Buffer<CR>")
+vim.keymap.set("n", "<Leader>b", ":Buffers<CR>")
 vim.keymap.set("n", "<Leader>bl", ":BLines<CR>")
 vim.keymap.set("n", "<Leader>l", ":Lines<CR>")
 vim.keymap.set("n", "<Leader>gf", ":GFiles<CR>")
@@ -88,10 +88,10 @@ vim.keymap.set("v", "<Leader>t<Bar>", ":Tabularize /<Bar><CR>")
 vim.keymap.set("n", "<Leader>ta", ":TagbarToggle<CR>")
 
 --------------
--- Startify --
-vim.keymap.set("n", "<Leader>sl", ":SLoad")
-vim.keymap.set("n", "<Leader>sc", ":SClose<CR>")
-vim.keymap.set("n", "<Leader>ss", ":SSave")
+-- Startify (disabled)
+-- vim.keymap.set("n", "<Leader>sl", ":SLoad")
+-- vim.keymap.set("n", "<Leader>sc", ":SClose<CR>")
+-- vim.keymap.set("n", "<Leader>ss", ":SSave")
 
 --------------
 -- gitsigns --
@@ -124,3 +124,43 @@ vim.keymap.set("v", "<Leader>oo", ":<c-u>lua require('ollama').prompt()<cr>")
 vim.keymap.set("n", "<Leader>og", ":<c-u>lua require('ollama').prompt('Generate_Code')<cr>")
 vim.keymap.set("v", "<Leader>og", ":<c-u>lua require('ollama').prompt('Generate_Code')<cr>")
 vim.keymap.set("n", "<leader>om", ":OllamaModel")
+
+-----------------
+-- New Plugins --
+-----------------
+
+-- Conform.nvim (Code Formatting) - Using Space+f
+vim.keymap.set("n", "<Space>f", ":Format<CR>", { desc = "Format code" })
+vim.keymap.set("v", "<Space>f", ":Format<CR>", { desc = "Format selection" })
+
+-- Spectre (Search & Replace) - Using 'r' prefix
+local spectre_ok, spectre = pcall(require, "spectre")
+if spectre_ok then
+	vim.keymap.set("n", "<Leader>rr", function()
+		spectre.toggle()
+	end, { desc = "Toggle Spectre" })
+	vim.keymap.set("n", "<Leader>rw", function()
+		spectre.open_visual({ select_word = true })
+	end, { desc = "Replace current word" })
+	vim.keymap.set("v", "<Leader>rw", function()
+		spectre.open_visual()
+	end, { desc = "Replace selected" })
+	vim.keymap.set("n", "<Leader>rf", function()
+		spectre.open_file_search()
+	end, { desc = "Replace in file" })
+end
+
+-- Diffview (Git Visualization) - Using 'v' prefix
+vim.keymap.set("n", "<Leader>vo", ":DiffviewOpen<CR>", { desc = "Open diff view" })
+vim.keymap.set("n", "<Leader>vc", ":DiffviewClose<CR>", { desc = "Close diff view" })
+vim.keymap.set("n", "<Leader>vh", ":DiffviewFileHistory %<CR>", { desc = "View file history" })
+vim.keymap.set("n", "<Leader>vH", ":DiffviewFileHistory<CR>", { desc = "View branch history" })
+vim.keymap.set("n", "<Leader>vr", ":DiffviewRefresh<CR>", { desc = "Refresh diff view" })
+
+-- Notify (Notifications) - Using 'q' prefix
+local notify_ok, notify = pcall(require, "notify")
+if notify_ok then
+	vim.keymap.set("n", "<Leader>qn", function()
+		notify.dismiss()
+	end, { desc = "Dismiss notifications" })
+end

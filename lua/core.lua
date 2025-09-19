@@ -26,7 +26,7 @@ vim.o.laststatus = 2
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.ruler = true
-vim.o.shiftwidth = 4
+vim.o.shiftwidth = 2
 vim.o.showcmd = true
 vim.o.showmatch = true
 vim.o.smartcase = true
@@ -40,10 +40,7 @@ vim.o.title = true
 vim.o.undofile = true
 vim.o.undolevels = 1000
 vim.o.visualbell = true
-vim.o.wildignore = vim.o.wildignore .. "*.o,*.out,*.obj,*.so,*.pyc"
-vim.o.wildignore = vim.o.wildignore .. "*.so,*.swp,*.zip,*.pyc"
-vim.o.wildignore = vim.o.wildignore .. "*.swp,*~,._*"
-vim.o.wildignore = vim.o.wildignore .. "*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz"
+vim.o.wildignore = "*.o,*.out,*.obj,*.so,*.pyc,*.swp,*.zip,*~,._*,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz"
 vim.o.wildmenu = true
 vim.o.wildmode = "list:longest"
 vim.o.wrap = true
@@ -55,7 +52,7 @@ vim.g.indent_guides_enable_on_vim_startup = 1
 vim.g.loaded_python3_provider = 0
 
 
-function SETLOCALPERFILETYPE()
+local function set_local_per_filetype()
   local filetype = vim.bo.filetype
   if filetype == "python" then
     vim.cmd([[set ts=4 sw=4 sts=4 expandtab]])
@@ -65,7 +62,7 @@ function SETLOCALPERFILETYPE()
 end
 
 vim.api.nvim_create_autocmd("BufEnter", {
-  command = "silent! lua SETLOCALPERFILETYPE()",
+  callback = set_local_per_filetype,
 })
 
 ---------------

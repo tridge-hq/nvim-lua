@@ -8,7 +8,7 @@ cd $HOME
 
 # Install other packages
 brew install --force git the_silver_searcher tmux zsh fzf universal-ctags wget httpie \
-    lsd direnv neovim bat
+    lsd direnv neovim bat ripgrep
 
 # Font
 brew tap homebrew/cask-fonts
